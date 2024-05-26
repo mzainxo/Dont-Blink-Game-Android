@@ -1,0 +1,27 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorSurfaceContainer">@color/dgrey</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearanceSmall</item>
+        <item name="textAppearanceButton">@style/TextAppearanceSmall</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearanceSmall</item>
+        <item name="colorOnSecondaryContainer">@color/dgreen</item>
+        <item name="colorSecondaryContainer">@color/cyan</item>
+        <item name="colorOnSurface">@color/cyan</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearanceSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearanceMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+</resources>
