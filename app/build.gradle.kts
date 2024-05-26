@@ -47,5 +47,8 @@ dependencies {
     implementation(libs.navigation.ui)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
+    implementation(libs.glide)
+    implementation(libs.glide.annotations)
+    annotationProcessor(libs.glide.compiler)
     androidTestImplementation(libs.espresso.core)
 }

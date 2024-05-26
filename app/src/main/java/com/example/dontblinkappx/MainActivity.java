@@ -2,9 +2,6 @@ package com.example.dontblinkappx;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -14,7 +11,7 @@ import com.example.dontblinkappx.databinding.ActivityMainBinding;
 import com.example.dontblinkappx.ui.help.HelpFragment;
 import com.example.dontblinkappx.ui.leaderboard.LeaderboardFragment;
 import com.example.dontblinkappx.ui.play.PlayFragment;
-import com.example.dontblinkappx.ui.statistics.StatisticsFragment;
+import com.example.dontblinkappx.ui.profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,14 +28,14 @@ public class MainActivity extends AppCompatActivity {
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
-            if (itemId == R.id.navigation_play) {
+            if (itemId == R.id.navigation_home) {
                 replaceFragment(new PlayFragment());
             }
             else if (itemId == R.id.navigation_leaderboard) {
                 replaceFragment(new LeaderboardFragment());
             }
-            else if(itemId == R.id.navigation_stats){
-                replaceFragment(new StatisticsFragment());
+            else if(itemId == R.id.navigation_profile){
+                replaceFragment(new ProfileFragment());
             }
             else if(itemId == R.id.navigation_help){
                 replaceFragment(new HelpFragment());
@@ -52,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         }
         // Set the navigation bar color to match the BottomNavigationView background color
         getWindow().setNavigationBarColor(
-                getResources().getColor(R.color.dgrey, getTheme())
+                getResources().getColor(R.color.yellow1, getTheme())
         );
     }
 

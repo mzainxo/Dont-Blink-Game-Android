@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_play"
-        android:icon="@drawable/ic_play_selector"
-        android:title="Play" />
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_selector"
+        android:title="Home" />
 
     <item
         android:id="@+id/navigation_leaderboard"
@@ -12,13 +12,15 @@
         android:title="Leaderboard" />
 
     <item
-        android:id="@+id/navigation_stats"
-        android:icon="@drawable/ic_stats_selector"
-        android:title="Statistics" />
-
-    <item
         android:id="@+id/navigation_help"
         android:icon="@drawable/ic_help_selector"
         android:title="Help" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_profile_selector"
+        android:title="Profile" />
+
+
 
 </menu>

@@ -3,12 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20sp"
+    android:background="@color/lyellow"
     tools:context=".ui.help.HelpFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:textSize="38sp"
+        android:textColor="@color/dblue"
+        android:fontFamily="@font/quicksand_regular"
+        android:text="How to Play?" />
 
 </FrameLayout>

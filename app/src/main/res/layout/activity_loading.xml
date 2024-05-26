@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <!-- Image view centered -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/minion_load"
+        android:scaleType="centerCrop" />
+
+    <!-- Text view at the top center -->
+
+
+    <!-- Text view at the bottom center -->
+    <TextView
+        android:id="@+id/loadingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:padding="16dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Loading.."
+        android:textColor="@color/black"
+        android:layout_marginBottom="145dp"
+        android:textSize="38sp" />
+
+</FrameLayout>

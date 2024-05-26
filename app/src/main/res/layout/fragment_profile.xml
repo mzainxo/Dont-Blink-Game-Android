@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="20sp"
     android:background="@color/lyellow"
-    tools:context=".ui.leaderboard.LeaderboardFragment">
+    tools:context=".ui.profile.ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -14,6 +14,6 @@
         android:textSize="38sp"
         android:textColor="@color/dblue"
         android:fontFamily="@font/quicksand_regular"
-        android:text="Leaderboard" />
+        android:text="Profile" />
 
 </FrameLayout>
