@@ -7,4 +7,14 @@
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="help_text">
+        Objective: \nKeep your eyes open for as long as possible. The player who keeps their eyes open the longest wins the game.
+        \n\nGet Ready:
+        \nMake sure your face is clearly visible to the front camera, and position yourself in good lighting for accurate eye detection.
+        \n\nGame Play:
+        \nOnce the countdown reaches zero, the game begins. Keep your eyes open! The game will track how long you can keep your eyes open. If your eyes close or your face is not detected, the game will stop automatically.
+        \n\nWinning the Game:
+        \nThe player who keeps their eyes open the longest wins. Your scores will be recorded, you can check the leaderboard to see who has the highest score, and compete with your friends!
+</string>
+
 </resources>

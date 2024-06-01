@@ -2,8 +2,12 @@ package com.example.dontblinkappx;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -27,9 +31,21 @@ import java.io.IOException;
 public class DetectionActivity extends AppCompatActivity {
 
     private static final String TAG = "DetectionActivity";
-    TextView textView;
-    SurfaceView surface_camera_preview;
-    CameraSource cameraSource;
+    private TextView textView;
+    private TextView timeSecondsTextView;
+    private TextView countdownTextView;
+    private SurfaceView surface_camera_preview;
+    private CameraSource cameraSource;
+    private int frameCount = 0;
+    private long startTime;
+    private Handler handler;
+    public boolean shouldRestartGame = true;
+    private boolean gameStopped = false; // Flag to prevent multiple stopAll calls
+
+    // Public fields to store stopped frame count and time
+    public int stoppedFrameCount;
+    public long stoppedTime;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +58,18 @@ public class DetectionActivity extends AppCompatActivity {
             Toast.makeText(this, "Grant Permission and restart app", Toast.LENGTH_SHORT).show();
         } else {
             textView = findViewById(R.id.textView);
+            timeSecondsTextView = findViewById(R.id.time_seconds_text);
             surface_camera_preview = findViewById(R.id.surface_camera_preview);
+            countdownTextView = findViewById(R.id.countdown_text);
 
+            getWindow().setNavigationBarColor(
+                    getResources().getColor(R.color.lyellow, getTheme())
+            );
             // Add SurfaceHolder callback
             surface_camera_preview.getHolder().addCallback(new SurfaceHolder.Callback() {
                 @Override
                 public void surfaceCreated(@NonNull SurfaceHolder holder) {
-                    startCameraSource();
+                    startCountdown();
                 }
 
                 @Override
@@ -58,9 +79,7 @@ public class DetectionActivity extends AppCompatActivity {
 
                 @Override
                 public void surfaceDestroyed(@NonNull SurfaceHolder holder) {
-                    if (cameraSource != null) {
-                        cameraSource.stop();
-                    }
+                    stopAll("Surface Destroyed");
                 }
             });
 
@@ -68,7 +87,7 @@ public class DetectionActivity extends AppCompatActivity {
         }
     }
 
-    public void createCameraSource() {
+    private void createCameraSource() {
         FaceDetector detector = new FaceDetector.Builder(this)
                 .setTrackingEnabled(true)
                 .setClassificationType(FaceDetector.ALL_CLASSIFICATIONS)
@@ -100,51 +119,57 @@ public class DetectionActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Restart the camera source if it exists
-        startCameraSource();
-        setTitle("Welcome"); // Set the title for the DetectionActivity
+        if (shouldRestartGame) {
+            startCountdown();
+        }
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(DetectionActivity.this, MainActivity.class);
+        intent.putExtra("fragment", "play");
+        startActivity(intent);
+        finish();
+    }
+    @Override
     protected void onPause() {
         super.onPause();
-        // Stop the camera source to release resources
-        if (cameraSource != null) {
-            cameraSource.stop();
-        }
+        stopAll("Screen Closed");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Release the camera source when the activity is destroyed
-        if (cameraSource != null) {
-            cameraSource.release();
-        }
+        stopAll("Screen Destroyed");
     }
 
     private class EyesTracker extends Tracker<Face> {
-        private final float THRESHOLD = 0.75f;
+        private final float THRESHOLD = 0.70f;
 
         @Override
         public void onUpdate(Detector.Detections<Face> detections, Face face) {
             if (face.getIsLeftEyeOpenProbability() > THRESHOLD || face.getIsRightEyeOpenProbability() > THRESHOLD) {
                 Log.i(TAG, "onUpdate: Eyes Detected");
-                showStatus("Eyes Detected and open, so video continues");
+                showStatus("Eyes Open");
             } else {
-                showStatus("Eyes Detected and closed, so video paused");
+                stopAll("Eyes Blinked");
             }
+            frameCount++;
+            updateFrameCount();
         }
 
         @Override
         public void onMissing(Detector.Detections<Face> detections) {
             super.onMissing(detections);
-            showStatus("Face Not Detected yet!");
+            showStatus("Face Not Detected");
+            stopAll("Face Not Detected");
         }
 
         @Override
         public void onDone() {
             super.onDone();
+            stopAll("Eyes Blinked");
         }
     }
 
@@ -156,12 +181,95 @@ public class DetectionActivity extends AppCompatActivity {
     }
 
     // Method to update status text on UI
-    public void showStatus(final String message) {
+    private void showStatus(final String message) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 textView.setText(message);
             }
         });
+    }
+
+    // Method to update frame count on UI
+    private void updateFrameCount() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                countdownTextView.setText(String.valueOf(frameCount));
+            }
+        });
+    }
+
+    // Method to start timer to update time in seconds
+    private void startTimer() {
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                long elapsedTime = System.currentTimeMillis() - startTime;
+                int seconds = (int) (elapsedTime / 1000);
+                timeSecondsTextView.setText(String.valueOf(seconds));
+                handler.postDelayed(this, 1000);
+            }
+        }, 1000);
+    }
+
+    public void openDialogueActivity(int frameCount, long stoppedTime) {
+        GameOverDialog dialog = new GameOverDialog(DetectionActivity.this, frameCount, stoppedTime);
+        dialog.setContentView(R.layout.activity_dialogue);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+    }
+
+    // Method to stop timer and camera source
+    private void stopAll(String msg) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (gameStopped)
+                    return; // Prevent multiple calls to stopAll
+                gameStopped = true;
+
+                shouldRestartGame = false;
+                if (handler != null) {
+                    handler.removeCallbacksAndMessages(null);
+                    handler = null;
+                }
+
+                // Store current frame count and time
+                stoppedFrameCount = frameCount;
+                stoppedTime = System.currentTimeMillis();
+
+                showStatus(msg);
+
+                if (cameraSource != null) {
+                    cameraSource.stop();
+                }
+                // Prevent game from restarting automatically
+                openDialogueActivity(stoppedFrameCount, stoppedTime - startTime);
+            }
+        });
+    }
+
+    // Method to start the countdown
+    private void startCountdown() {
+        final int[] countdownValues = {3, 2, 1, 0};
+        handler = new Handler();
+        for (int i = 0; i < countdownValues.length; i++) {
+            final int index = i;
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (countdownValues[index] == 0) {
+                        showStatus("START");
+                        startCameraSource();
+                        startTime = System.currentTimeMillis();
+                        startTimer();
+                    } else {
+                        textView.setText(String.valueOf(countdownValues[index]));
+                    }
+                }
+            }, i * 1000);
+        }
     }
 }

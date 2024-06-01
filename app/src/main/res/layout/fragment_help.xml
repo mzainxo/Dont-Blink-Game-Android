@@ -7,13 +7,34 @@
     android:background="@color/lyellow"
     tools:context=".ui.help.HelpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:textSize="38sp"
         android:textColor="@color/dblue"
         android:fontFamily="@font/quicksand_regular"
         android:text="How to Play?" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="90dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/dblue"
+        android:padding="25dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/yellow1"
+            android:justificationMode="inter_word"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="@string/help_text"/>
+
+    </ScrollView>
+
+
 
 </FrameLayout>

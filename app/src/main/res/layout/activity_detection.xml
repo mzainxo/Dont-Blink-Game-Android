@@ -8,19 +8,127 @@
     android:background="#FCFAD8"
     android:padding="20sp"
     tools:context=".DetectionActivity">
-
     <TextView
-        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/quicksand_medium"
-        android:text="@string/face_not_found"
-        android:textSize="18sp" />
-    <SurfaceView
-        android:id="@+id/surface_camera_preview"
+        android:layout_height="wrap_content"
+        android:text="Please look at the camera for better detection"
+        android:gravity="center"
+        android:layout_marginTop="-6dp"
+        android:textColor="#FF0000"
+        android:layout_marginBottom="8dp"/>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="490dp" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/countdown_card"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginBottom="12dp"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="0dp"
+            android:backgroundTint="@color/dblue"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/countdown_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/yellow1"
+                android:textSize="38sp"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/frame_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Frames"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_marginTop="2dp"
+                />
+
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="4dp"
+            id="@+id/time_card"
+            app:cardCornerRadius="50dp"
+            android:layout_marginBottom="12dp"
+            app:cardElevation="0dp"
+            android:backgroundTint="@color/dblue"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/time_seconds_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/yellow1"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="0"
+                android:gravity="center"
+                android:background="@color/dblue"
+                android:textSize="38sp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/time_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:gravity="center"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        id="@+id/status_card"
+        app:cardCornerRadius="50dp"
+        android:layout_marginBottom="12dp"
+        app:cardElevation="0dp"
+        android:backgroundTint="@color/yellow1"
+        app:strokeWidth="0dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/dblue"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:text="Face not detected"
+            android:textSize="34sp"
+            android:layout_marginBottom="5dp"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="490dp"
+        app:cardCornerRadius="50dp"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp">
+
+        <SurfaceView
+            android:id="@+id/surface_camera_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.card.MaterialCardView>
 
 
 
