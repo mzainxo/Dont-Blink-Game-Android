@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@drawable/minionbg"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/quicksand_bold"
+        android:layout_marginTop="20sp"
+        android:lineHeight="58dp"
+        android:id="@+id/signin_txt"
+        android:text="Sign in to play." />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_view"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/signin_txt"
+        android:backgroundTint="#00000000">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="0dp">
+
+            <EditText
+                android:id="@+id/username_etxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/dblue"
+                android:backgroundTint="@color/dblue"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/password_etxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/dblue"
+                android:backgroundTint="@color/dblue"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <Button
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_view"
+        android:text="Sign In"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/quicksand_medium"
+        android:backgroundTint="@color/dblue"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/yellow1" />
+
+    <Button
+        android:id="@+id/btn_sign_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create a new account"
+        android:layout_above="@id/copyright"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:layout_marginBottom="2dp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/copyright"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Made by Zain, Nadeem, and Arsalan"
+        android:layout_marginBottom="20dp"
+        android:textSize="12sp"
+        android:textColor="#88FFFFFF"/>
+
+
+</RelativeLayout>

@@ -15,6 +15,7 @@ lifecycleViewmodelKtx = "2.6.1"
 glide = "4.14.2"
 navigationFragment = "2.7.7"
 navigationUi = "2.7.7"
+annotation = "1.8.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -34,6 +35,7 @@ navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 glide-annotations = { group = "com.github.bumptech.glide", name = "annotations", version.ref = "glide" }
 glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
+annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
