@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "733838906938",
+    "project_id": "dont-blink-game",
+    "storage_bucket": "dont-blink-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:733838906938:android:993ec1dcf9a40cb2948703",
+        "android_client_info": {
+          "package_name": "com.example.dontblinkappx"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiILSIEIld64n9cUuRGcEBjziRMDQUG58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

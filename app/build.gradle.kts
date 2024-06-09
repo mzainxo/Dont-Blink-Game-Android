@@ -52,4 +52,5 @@ dependencies {
     implementation(libs.glide.annotations)
     annotationProcessor(libs.glide.compiler)
     androidTestImplementation(libs.espresso.core)
+    implementation("com.google.firebase:firebase-database:21.0.0")
 }
