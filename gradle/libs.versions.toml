@@ -16,6 +16,8 @@ glide = "4.14.2"
 navigationFragment = "2.7.7"
 navigationUi = "2.7.7"
 annotation = "1.8.0"
+googleGmsGoogleServices = "4.4.2"
+firebaseDatabase = "21.0.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -36,7 +38,9 @@ glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "gl
 glide-annotations = { group = "com.github.bumptech.glide", name = "annotations", version.ref = "glide" }
 glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
 annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 

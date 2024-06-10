@@ -2,4 +2,5 @@
 plugins {
     alias(libs.plugins.android.application) apply false
     id("com.chaquo.python") version "14.0.2" apply false
+    alias(libs.plugins.google.gms.google.services) apply false
 }
