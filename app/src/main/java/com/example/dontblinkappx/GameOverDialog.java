@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class GameOverDialog extends Dialog {
 
     private DetectionActivity detectionActivity;
@@ -58,5 +62,16 @@ public class GameOverDialog extends Dialog {
                 detectionActivity.finish();
             }
         });
+    }
+    public void saveGameData() {
+        // Get a reference to the database node for the current user
+        DatabaseReference currentUserRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserKey);
+
+        // Create a new node for the game data
+        DatabaseReference gameDataRef = currentUserRef.child("gameData").push(); // Push to generate unique key
+
+        // Set the values for frameCount and stoppedTime
+        gameDataRef.child("frameCount").setValue(frameCount);
+        gameDataRef.child("stoppedTime").setValue(stoppedTime);
     }
 }

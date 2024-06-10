@@ -45,12 +45,18 @@ public class DetectionActivity extends AppCompatActivity {
     // Public fields to store stopped frame count and time
     public int stoppedFrameCount;
     public long stoppedTime;
-
+    private String currentUserKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detection);
+
+        // Retrieve the currentUserKey from the intent extras
+        Intent intent = getIntent();
+        if (intent != null) {
+            currentUserKey = intent.getStringExtra("currentUserKey");
+        }
 
         // Request CAMERA permission if not granted
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
