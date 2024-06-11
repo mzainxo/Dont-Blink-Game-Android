@@ -63,15 +63,15 @@ public class GameOverDialog extends Dialog {
             }
         });
     }
-    public void saveGameData() {
-        // Get a reference to the database node for the current user
-        DatabaseReference currentUserRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserKey);
-
-        // Create a new node for the game data
-        DatabaseReference gameDataRef = currentUserRef.child("gameData").push(); // Push to generate unique key
-
-        // Set the values for frameCount and stoppedTime
-        gameDataRef.child("frameCount").setValue(frameCount);
-        gameDataRef.child("stoppedTime").setValue(stoppedTime);
-    }
+//    public void saveGameData() {
+//        // Get a reference to the database node for the current user
+//        DatabaseReference currentUserRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserKey);
+//
+//        // Create a new node for the game data
+//        DatabaseReference gameDataRef = currentUserRef.child("gameData").push(); // Push to generate unique key
+//
+//        // Set the values for frameCount and stoppedTime
+//        gameDataRef.child("frameCount").setValue(frameCount);
+//        gameDataRef.child("stoppedTime").setValue(stoppedTime);
+//    }
 }
