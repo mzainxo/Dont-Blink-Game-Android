@@ -11,7 +11,7 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:layout_width="222dp"
+        android:layout_width="224dp"
         android:layout_height="wrap_content"
         android:textSize="50sp"
         android:textColor="@color/black"
@@ -66,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/card_view"
-        android:text="Sign In"
+        android:text="Login or Register"
         android:padding="10dp"
         android:textSize="18sp"
         android:fontFamily="@font/quicksand_medium"
@@ -74,18 +74,16 @@
         android:layout_marginTop="15dp"
         android:textColor="@color/yellow1" />
 
-    <Button
-        android:id="@+id/btn_sign_up"
+    <TextView
+        android:id="@+id/info"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Create a new account"
-        android:layout_above="@id/copyright"
-        android:textSize="18sp"
-        android:padding="10dp"
-        android:fontFamily="@font/quicksand_medium"
-        android:layout_marginBottom="2dp"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white" />
+        android:layout_alignParentBottom="true"
+        android:text="User will be signed up automatically if not registered."
+        android:layout_marginBottom="140dp"
+        android:textSize="12sp"
+        android:textColor="@color/yellow1"/>
 
     <TextView
         android:id="@+id/copyright"
@@ -93,10 +91,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Made by Zain, Nadeem, and Arsalan"
-        android:layout_marginBottom="20dp"
+        android:text="Copyrights @ Don't Blink 2024\nMade by Zain, Nadeem, and Arsalan"
+        android:layout_marginBottom="40dp"
         android:textSize="12sp"
-        android:textColor="#88FFFFFF"/>
+        android:textColor="#99FFFFFF"/>
 
 
 </RelativeLayout>

@@ -363,14 +363,12 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="REFRESH"
+        android:layout_height="wrap_content"
+        android:text="Refresh"
         android:layout_gravity="bottom"
-        android:backgroundTint="@color/yellow1"
-        android:textSize="25sp"
-        android:fontFamily="@font/quicksand_bold"
-        android:textColor="@color/dblue"
-        app:strokeWidth="4dp"
-        app:strokeColor="@color/dblue"
-        android:layout_marginBottom="80dp"/>
+        android:backgroundTint="@color/dblue"
+        android:textSize="18sp"
+        android:fontFamily="@font/quicksand_medium"
+        android:textColor="@color/yellow1"
+        android:layout_marginBottom="90dp"/>
 </FrameLayout>

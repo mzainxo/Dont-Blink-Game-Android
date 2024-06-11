@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="20sp"
     android:background="@color/lyellow"
     tools:context=".ui.profile.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,5 +15,50 @@
         android:textColor="@color/dblue"
         android:fontFamily="@font/quicksand_regular"
         android:text="Profile" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center_horizontal"
+        app:shapeAppearanceOverlay="@style/circleImageView"
+        app:srcCompat="@drawable/profileimg1" />
+
+    <TextView
+        android:id="@+id/username_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:fontFamily="@font/quicksand_bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="70dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/copyright"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Copyrights @ Don't Blink 2024\nMade by Zain, Nadeem, and Arsalan"
+        android:layout_marginBottom="140dp"
+        android:textSize="12sp"
+        android:layout_gravity="bottom"
+        android:textColor="#99000000"/>
+
+    <Button
+        android:id="@+id/gameButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log out"
+        android:textSize="18sp"
+        android:backgroundTint="@color/dblue"
+        android:fontFamily="@font/quicksand_medium"
+        android:textColor="@color/yellow1"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="80sp"/>
 
 </FrameLayout>

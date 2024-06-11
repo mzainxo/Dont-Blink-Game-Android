@@ -29,7 +29,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText usernameEditText;
     private EditText passwordEditText;
     private Button signInButton;
-    private Button signUpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         usernameEditText = findViewById(R.id.username_etxt);
         passwordEditText = findViewById(R.id.password_etxt);
         signInButton = findViewById(R.id.btn_sign_in);
-        signUpButton = findViewById(R.id.btn_sign_up);
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,13 +48,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        signUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Implement sign up logic or redirect to sign up activity
-                Toast.makeText(LoginActivity.this, "Sign up clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         getWindow().setNavigationBarColor(
                 getResources().getColor(R.color.blue, getTheme())
