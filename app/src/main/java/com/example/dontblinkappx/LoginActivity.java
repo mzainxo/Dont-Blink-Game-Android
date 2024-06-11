@@ -153,6 +153,8 @@ public class LoginActivity extends AppCompatActivity {
                         String savedPassword = dataSnapshot.child("password").getValue(String.class);
                         if (savedPassword.equals(password)) {
                             // Password matches, successful login
+                            DatabaseReference userRef = usersRef.child(username);
+                            userRef.child("Status").setValue("Online");
                             Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
 
                             // Store the username in SharedPreferences
@@ -173,6 +175,11 @@ public class LoginActivity extends AppCompatActivity {
                         // Username doesn't exist, register it
                         DatabaseReference userRef = usersRef.child(username);
                         userRef.child("password").setValue(password);
+                        userRef.child("GamesPlayed").setValue(0);
+                        userRef.child("HighScore").setValue(0);
+                        userRef.child("BestTime").setValue(0);
+                        userRef.child("Status").setValue("Offline");
+
                         // Successful registration
                         Toast.makeText(LoginActivity.this, "User registered successfully", Toast.LENGTH_SHORT).show();
 

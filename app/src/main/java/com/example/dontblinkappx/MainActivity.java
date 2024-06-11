@@ -1,6 +1,8 @@
 package com.example.dontblinkappx;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +15,8 @@ import com.example.dontblinkappx.ui.help.HelpFragment;
 import com.example.dontblinkappx.ui.leaderboard.LeaderboardFragment;
 import com.example.dontblinkappx.ui.play.PlayFragment;
 import com.example.dontblinkappx.ui.profile.ProfileFragment;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 

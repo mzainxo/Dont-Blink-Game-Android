@@ -1,17 +1,11 @@
 package com.example.dontblinkappx;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class GameOverDialog extends Dialog {
 
@@ -37,8 +31,10 @@ public class GameOverDialog extends Dialog {
         TextView frameCountTextView = findViewById(R.id.tvFrameCount);
         TextView stoppedTimeTextView = findViewById(R.id.tvTimeScored);
 
+        int timeInSeconds  = (int) (stoppedTime / 1000);
         frameCountTextView.setText("Frame Count: " + frameCount);
-        stoppedTimeTextView.setText("Time: " + (stoppedTime / 1000) + "s");
+        stoppedTimeTextView.setText("Time: " + timeInSeconds + "s");
+
 
         playAgain.setOnClickListener(new View.OnClickListener() {
             @Override

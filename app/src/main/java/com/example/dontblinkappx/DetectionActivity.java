@@ -27,6 +27,11 @@ import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.Tracker;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 
@@ -47,6 +52,7 @@ public class DetectionActivity extends AppCompatActivity {
     // Public fields to store stopped frame count and time
     public int stoppedFrameCount;
     public long stoppedTime;
+
 
 
     @Override
@@ -220,10 +226,50 @@ public class DetectionActivity extends AppCompatActivity {
         }, 1000);
     }
 
+
+
     public void openDialogueActivity(int frameCount, long stoppedTime) {
+        // Retrieve the username from SharedPreferences
+        SharedPreferences sharedPref = getSharedPreferences("username", Context.MODE_PRIVATE);
+        String storedUsername = sharedPref.getString("username", "");
+
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(storedUsername);
         GameOverDialog dialog = new GameOverDialog(DetectionActivity.this, frameCount, stoppedTime);
         dialog.setContentView(R.layout.activity_dialogue);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        // Retrieve HighScore and BestTime from the database
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    int storedHighScore = dataSnapshot.child("HighScore").getValue(Integer.class);
+                    int storedBestTime = dataSnapshot.child("BestTime").getValue(Integer.class);
+                    int storedGamesPlayed = dataSnapshot.child("GamesPlayed").getValue(Integer.class);
+
+                    int timeInSeconds = (int) (stoppedTime / 1000);
+
+                    // Update HighScore if current frame count is greater
+                    if (frameCount > storedHighScore) {
+                        userRef.child("HighScore").setValue(frameCount);
+                    }
+
+                    // Update BestTime if current time is less
+                    if (timeInSeconds > storedBestTime) {
+                        userRef.child("BestTime").setValue(timeInSeconds);
+                    }
+
+                    // Increment GamesPlayed by 1
+                    userRef.child("GamesPlayed").setValue(storedGamesPlayed + 1);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle errors
+            }
+        });
+
         dialog.show();
     }
 
