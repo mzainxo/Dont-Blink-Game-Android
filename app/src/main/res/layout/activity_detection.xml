@@ -120,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="490dp"
         app:cardCornerRadius="50dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="12dp"
         app:cardElevation="0dp"
         app:strokeWidth="0dp">
 
@@ -130,6 +130,38 @@
             android:layout_height="match_parent" />
     </com.google.android.material.card.MaterialCardView>
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/myhscore_card"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="18dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="0dp"
+        android:backgroundTint="@color/yellow1"
+        app:strokeWidth="0dp"
+        app:strokeColor="@color/dblue">
 
+        <TextView
+            android:id="@+id/myhscore_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/dblue"
+            android:textSize="38sp"
+            android:layout_marginTop="17dp"/>
+        <TextView
+            android:id="@+id/myframe_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Highscore"
+            android:gravity="center"
+            android:textColor="@color/dblue"
+            android:textSize="18sp"
+            android:layout_marginTop="2dp"
+            />
+
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

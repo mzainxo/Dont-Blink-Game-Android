@@ -1,6 +1,8 @@
 package com.example.dontblinkappx.ui.play;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,32 +15,18 @@ import com.example.dontblinkappx.LoadingActivity;
 import com.example.dontblinkappx.R;
 public class PlayFragment extends Fragment {
 
-    private static final String ARG_USERNAME = "username";
-    private String username;
-
-    public static PlayFragment newInstance(String username) {
-        PlayFragment fragment = new PlayFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_USERNAME, username);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            username = getArguments().getString(ARG_USERNAME);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_play, container, false);
 
         TextView textView = view.findViewById(R.id.username_txt);
-        textView.setText("Howdy, " + username);
+
+        // Retrieve the username from SharedPreferences
+        SharedPreferences sharedPref = getActivity().getSharedPreferences("username", Context.MODE_PRIVATE);
+        String storedUsername = sharedPref.getString("username", "");
+
+        textView.setText("Howdy, " + storedUsername);
 
         Button gameButton = view.findViewById(R.id.gameButton);
         gameButton.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -11,38 +11,44 @@
 
     <TextView
         android:id="@+id/username_txt"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textColor="@color/dblue"
         android:fontFamily="@font/quicksand_medium"
-        android:text="Howdy, User" />
+        android:text="Howdy, User"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/welcome_txt"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/username_txt"
         android:textSize="36sp"
-        android:layout_marginTop="-8dp"
         android:textColor="@color/dblue"
         android:fontFamily="@font/quicksand_bold"
-        android:text="Let's Play!" />
+        android:text="Let's Play!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/username_txt"
+        android:layout_marginTop="-8dp" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/llayout1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/llayout1"
-        android:layout_below="@id/welcome_txt">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_txt"
+        android:layout_marginTop="24dp">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/rank_card"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="80dp"
-            android:layout_marginTop="24dp"
             android:layout_weight="1"
-            android:layout_marginRight="4dp"
             app:cardCornerRadius="50dp"
             app:cardElevation="0dp"
             android:backgroundTint="@color/yellow1"
@@ -72,9 +78,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/gplayed_card"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="80dp"
-            android:layout_marginTop="24dp"
             android:layout_weight="1"
             android:layout_marginLeft="4dp"
             app:cardCornerRadius="50dp"
@@ -104,17 +109,19 @@
                 />
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/hscore_card"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="80dp"
         android:layout_marginTop="10dp"
-        android:layout_weight="1"
-        android:layout_below="@id/llayout1"
         app:cardCornerRadius="50dp"
         app:cardElevation="0dp"
         android:backgroundTint="@color/yellow1"
-        app:strokeWidth="0dp">
+        app:strokeWidth="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llayout1">
 
         <TextView
             android:id="@+id/countdown_text"
@@ -137,17 +144,19 @@
             android:layout_marginTop="4dp"
             />
     </com.google.android.material.card.MaterialCardView>
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/tscore_card"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="80dp"
         android:layout_marginTop="10dp"
-        android:layout_weight="1"
-        android:layout_below="@id/hscore_card"
         app:cardCornerRadius="50dp"
         app:cardElevation="0dp"
         android:backgroundTint="@color/dblue"
-        app:strokeWidth="0dp">
+        app:strokeWidth="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hscore_card">
 
         <TextView
             android:id="@+id/tscountdown_text"
@@ -171,85 +180,90 @@
             />
     </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/htime_card"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/htime_card"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="0dp"
+        android:backgroundTint="@color/yellow1"
+        app:strokeWidth="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ttime_card">
+
+        <TextView
+            android:id="@+id/htime_count"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_below="@+id/ttime_card"
-            android:layout_weight="1"
-            android:layout_marginTop="10dp"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="0dp"
-            android:backgroundTint="@color/yellow1"
-            app:strokeWidth="0dp">
-
-            <TextView
-                android:id="@+id/htime_count"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/quicksand_bold"
-                android:gravity="center"
-                android:text="30s"
-                android:textColor="@color/dblue"
-                android:textSize="38sp"
-                android:layout_marginTop="10dp"/>
-            <TextView
-                android:id="@+id/htime_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Your Best Time"
-                android:gravity="center"
-                android:textColor="@color/dblue"
-                android:textSize="16sp"
-                android:layout_marginTop="4dp"
-                />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/ttime_card"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:text="30s"
+            android:textColor="@color/dblue"
+            android:textSize="38sp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/htime_text"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_below="@+id/llayout3"
-            app:cardCornerRadius="50dp"
-            android:layout_marginTop="10dp"
-            app:cardElevation="0dp"
-            android:backgroundTint="@color/dblue"
-            app:strokeWidth="0dp">
+            android:layout_height="wrap_content"
+            android:text="Your Best Time"
+            android:gravity="center"
+            android:textColor="@color/dblue"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"
+            />
+    </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/ttime_count"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/quicksand_bold"
-                android:gravity="center"
-                android:text="69s"
-                android:textColor="@color/yellow1"
-                android:textSize="38sp"
-                android:layout_marginTop="10dp"/>
-            <TextView
-                android:id="@+id/ttime_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Top Time"
-                android:gravity="center"
-                android:textColor="@color/yellow1"
-                android:textSize="16sp"
-                android:layout_marginTop="4dp"
-                />
-        </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/ttime_card"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="0dp"
+        android:backgroundTint="@color/dblue"
+        app:strokeWidth="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llayout3">
+
+        <TextView
+            android:id="@+id/ttime_count"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:text="69s"
+            android:textColor="@color/yellow1"
+            android:textSize="38sp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/ttime_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Top Time"
+            android:gravity="center"
+            android:textColor="@color/yellow1"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"
+            />
+    </com.google.android.material.card.MaterialCardView>
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/llayout3"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/llayout3"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/tscore_card">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tscore_card"
+        android:layout_marginTop="10dp">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/tplayers_card"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="80dp"
-
             android:layout_weight="1"
             android:layout_marginRight="4dp"
             app:cardCornerRadius="50dp"
@@ -281,7 +295,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/ttime2_card"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_weight="1"
             android:layout_marginLeft="4dp"
@@ -315,24 +329,30 @@
 
     <Button
         android:id="@+id/gameButton"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="PLAY GAME"
-        android:textSize="25sp"
-        android:backgroundTint="@color/black"
+        android:textSize="30sp"
+        android:backgroundTint="@color/yellow1"
         android:fontFamily="@font/quicksand_bold"
-        android:layout_marginBottom="80sp"
-        android:textColor="@color/yellow1"
-        android:layout_alignParentBottom="true"/>
+        android:textColor="@color/dblue"
+        app:strokeWidth="4dp"
+        app:strokeColor="@color/dblue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="80sp"/>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView2"
         android:layout_width="70dp"
-        android:layout_marginVertical="4dp"
         android:layout_height="70dp"
+        android:layout_marginVertical="4dp"
         android:layout_alignParentEnd="true"
         app:shapeAppearanceOverlay="@style/circleImageView"
-        app:srcCompat="@drawable/profileimg1" />
+        app:srcCompat="@drawable/profileimg1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-</RelativeLayout>

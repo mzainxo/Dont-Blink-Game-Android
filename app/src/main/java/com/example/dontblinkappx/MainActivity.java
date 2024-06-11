@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         binding.bottomNavigationView.setBackground(null);
-        String username = getIntent().getStringExtra("username");
-
+        final String username = getIntent().getStringExtra("username");
 
         // Assuming you have a method to retrieve the current user's key
         String currentUserKey = username;
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
             Fragment selectedFragment = null;
             if (itemId == R.id.navigation_home) {
-                selectedFragment = PlayFragment.newInstance(username);
+                selectedFragment = new PlayFragment();
             } else if (itemId == R.id.navigation_leaderboard) {
                 selectedFragment = new LeaderboardFragment();
             } else if (itemId == R.id.navigation_profile) {
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Load PlayFragment as the default fragment when the activity starts
         if (savedInstanceState == null) {
-            replaceFragment(PlayFragment.newInstance(username));
+            replaceFragment(new PlayFragment());
         }
 
         // Set the navigation bar color to match the BottomNavigationView background color

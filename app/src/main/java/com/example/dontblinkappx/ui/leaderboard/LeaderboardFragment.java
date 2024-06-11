@@ -1,5 +1,7 @@
 package com.example.dontblinkappx.ui.leaderboard;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -19,6 +21,11 @@ public class LeaderboardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        // Retrieve the username from SharedPreferences
+        SharedPreferences sharedPref = getActivity().getSharedPreferences("username", Context.MODE_PRIVATE);
+        String storedUsername = sharedPref.getString("username", "");
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_leaderboard, container, false);
     }

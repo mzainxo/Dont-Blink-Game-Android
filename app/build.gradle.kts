@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.google.gms.google.services)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -53,5 +53,5 @@ dependencies {
     implementation(libs.glide.annotations)
     annotationProcessor(libs.glide.compiler)
     androidTestImplementation(libs.espresso.core)
-    implementation("com.google.firebase:firebase-database:21.0.0")
+    implementation(libs.firebase.database)
 }

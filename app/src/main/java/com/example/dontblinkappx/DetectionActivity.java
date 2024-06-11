@@ -2,7 +2,9 @@ package com.example.dontblinkappx;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -45,18 +47,16 @@ public class DetectionActivity extends AppCompatActivity {
     // Public fields to store stopped frame count and time
     public int stoppedFrameCount;
     public long stoppedTime;
-    private String currentUserKey;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detection);
 
-        // Retrieve the currentUserKey from the intent extras
-        Intent intent = getIntent();
-        if (intent != null) {
-            currentUserKey = intent.getStringExtra("currentUserKey");
-        }
+        // Retrieve the username from SharedPreferences
+        SharedPreferences sharedPref = getSharedPreferences("username", Context.MODE_PRIVATE);
+        String storedUsername = sharedPref.getString("username", "");
 
         // Request CAMERA permission if not granted
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
