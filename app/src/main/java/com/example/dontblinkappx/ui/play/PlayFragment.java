@@ -15,11 +15,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import com.example.dontblinkappx.LoadingActivity;
 import com.example.dontblinkappx.R;
+import com.example.dontblinkappx.UserScore;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class PlayFragment extends Fragment {
 
@@ -95,6 +100,96 @@ public class PlayFragment extends Fragment {
             }
         });
 
+        // Attach ValueEventListener to usersRef to retrieve high score, best time, and online user count among all users
+        usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int maxHighScore = Integer.MIN_VALUE;
+                int minBestTime = Integer.MIN_VALUE;
+                int onlineUserCount = 0;
+
+                // Iterate through each user
+                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                    // Get the high score of the current user
+                    Integer userHighScore = userSnapshot.child("HighScore").getValue(Integer.class);
+                    if (userHighScore != null && userHighScore > maxHighScore) {
+                        maxHighScore = userHighScore;
+                    }
+
+                    // Get the best time of the current user
+                    Integer userBestTime = userSnapshot.child("BestTime").getValue(Integer.class);
+                    if (userBestTime != null && userBestTime > minBestTime) {
+                        minBestTime = userBestTime;
+                    }
+
+                    // Check if the user is online
+                    String status = userSnapshot.child("Status").getValue(String.class);
+                    if (status != null && status.equals("Online")) {
+                        onlineUserCount++;
+                    }
+                }
+
+                // Update the TextViews with the maximum high score, minimum best time, and online user count
+                TextView maxHighScoreTextView = view.findViewById(R.id.tscountdown_text);
+                maxHighScoreTextView.setText(String.valueOf(maxHighScore));
+
+                TextView minBestTimeTextView = view.findViewById(R.id.ttime_count);
+                minBestTimeTextView.setText(String.valueOf(minBestTime + "s"));
+
+                TextView onlineUserCountTextView = view.findViewById(R.id.Onlinecount_count);
+                onlineUserCountTextView.setText(String.valueOf(onlineUserCount));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle errors
+                Log.e("YourActivity", "Error fetching data", databaseError.toException());
+            }
+        });
+
+
+        // Attach ValueEventListener to usersRef to retrieve users and their high scores
+        usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Initialize a list to store user scores
+                List<UserScore> userScores = new ArrayList<>();
+
+                // Iterate through each user
+                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                    // Get the user's ID and high score
+                    String userId = userSnapshot.getKey();
+                    Integer userHighScore = userSnapshot.child("HighScore").getValue(Integer.class);
+
+                    // Add the user's score to the list
+                    if (userId != null && userHighScore != null) {
+                        userScores.add(new UserScore(userId, userHighScore));
+                    }
+                }
+
+                // Sort the user scores in descending order of high scores
+                Collections.sort(userScores, Collections.reverseOrder());
+
+                // Find the current user's rank
+                int currentUserRank = -1;
+                for (int i = 0; i < userScores.size(); i++) {
+                    if (userScores.get(i).userId.equals(storedUsername)) {
+                        currentUserRank = i + 1;
+                        break;
+                    }
+                }
+                TextView rankcount = view.findViewById(R.id.rank_count);
+                rankcount.setText(String.valueOf(currentUserRank));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle errors
+                Log.e("YourActivity", "Error fetching data", databaseError.toException());
+            }
+        });
+
+
         Button gameButton = view.findViewById(R.id.gameButton);
         gameButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +199,8 @@ public class PlayFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
 
         return view;
     }

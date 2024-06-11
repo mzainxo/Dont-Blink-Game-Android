@@ -305,7 +305,7 @@
             app:strokeWidth="0dp">
 
             <TextView
-                android:id="@+id/ttime2_count"
+                android:id="@+id/Onlinecount_count"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/quicksand_bold"
@@ -315,7 +315,7 @@
                 android:textSize="38sp"
                 android:layout_marginTop="10dp"/>
             <TextView
-                android:id="@+id/ttime2_text"
+                android:id="@+id/Onlinecount_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Players Online"
