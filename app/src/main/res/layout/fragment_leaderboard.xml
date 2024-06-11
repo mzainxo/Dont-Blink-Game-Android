@@ -3,17 +3,374 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="20sp"
     android:background="@color/lyellow"
     tools:context=".ui.leaderboard.LeaderboardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:textSize="38sp"
         android:textColor="@color/dblue"
         android:fontFamily="@font/quicksand_regular"
         android:text="Leaderboard" />
 
+    <LinearLayout
+        android:id="@+id/leaderboard_container"
+        android:layout_width="match_parent"
+        android:layout_height="440dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="90dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/dblue"
+        android:padding="15dp"
+        android:orientation="vertical">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/hscore_card"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="0dp"
+            android:backgroundTint="@color/yellow1"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/rank_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="#"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="15dp" />
+
+            <TextView
+                android:id="@+id/hscore_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Time"
+                android:gravity="right"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"
+                android:textSize="20sp"
+                android:layout_marginRight="18dp" />
+            <TextView
+                android:id="@+id/htime_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Score"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="100dp"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="45dp"
+                />
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/hscore_card1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="0dp"
+            android:backgroundTint="@color/blue"
+            android:layout_marginTop="15dp"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/rank_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="1"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/lyellow"
+                android:textSize="20sp"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/hscore_text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="500"
+                android:gravity="right"
+                android:textColor="@color/yellow1"
+                android:layout_marginTop="8dp"
+                android:textSize="20sp"
+                android:layout_marginRight="25dp" />
+            <TextView
+                android:id="@+id/htime_text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="8000"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="100dp"
+                android:textColor="@color/yellow1"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/name_text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Player_0001"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/yellow1"
+                android:textSize="20sp"
+                android:layout_marginLeft="45dp"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/hscore_card2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="0dp"
+            android:backgroundTint="@color/blue"
+            app:strokeWidth="0dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/rank_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="2"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/lyellow"
+                android:textSize="20sp"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/hscore_text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="500"
+                android:gravity="right"
+                android:textColor="@color/yellow1"
+                android:layout_marginTop="8dp"
+                android:textSize="20sp"
+                android:layout_marginRight="25dp" />
+            <TextView
+                android:id="@+id/htime_text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="8000"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="100dp"
+                android:textColor="@color/yellow1"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/name_text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Player_0002"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/yellow1"
+                android:textSize="20sp"
+                android:layout_marginLeft="45dp"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/hscore_card3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="0dp"
+            android:backgroundTint="@color/blue"
+            app:strokeWidth="0dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/rank_text3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="3"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/lyellow"
+                android:textSize="20sp"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/hscore_text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="500"
+                android:gravity="right"
+                android:textColor="@color/yellow1"
+                android:layout_marginTop="8dp"
+                android:textSize="20sp"
+                android:layout_marginRight="25dp" />
+            <TextView
+                android:id="@+id/htime_text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="8000"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="100dp"
+                android:textColor="@color/yellow1"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/name_text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Player_0003"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/yellow1"
+                android:textSize="20sp"
+                android:layout_marginLeft="45dp"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/hscore_card4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="0dp"
+            android:backgroundTint="@color/blue"
+            app:strokeWidth="0dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/rank_text4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="4"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/lyellow"
+                android:textSize="20sp"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/hscore_text4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="500"
+                android:gravity="right"
+                android:textColor="@color/yellow1"
+                android:layout_marginTop="8dp"
+                android:textSize="20sp"
+                android:layout_marginRight="25dp" />
+            <TextView
+                android:id="@+id/htime_text4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="8000"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="100dp"
+                android:textColor="@color/yellow1"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/name_text4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Player_0004"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/yellow1"
+                android:textSize="20sp"
+                android:layout_marginLeft="45dp"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/hscore_card5"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="0dp"
+            android:backgroundTint="@color/blue"
+            app:strokeWidth="0dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/rank_text5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="5"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/lyellow"
+                android:textSize="20sp"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/hscore_text5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="500"
+                android:gravity="right"
+                android:textColor="@color/yellow1"
+                android:layout_marginTop="8dp"
+                android:textSize="20sp"
+                android:layout_marginRight="25dp" />
+            <TextView
+                android:id="@+id/htime_text5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="8000"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="100dp"
+                android:textColor="@color/yellow1"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/name_text5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Player_0005"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/yellow1"
+                android:textSize="20sp"
+                android:layout_marginLeft="45dp"
+                />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="Refresh"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/yellow1"
+        android:textSize="25sp"
+        android:fontFamily="@font/quicksand_bold"
+        android:textColor="@color/dblue"
+        app:strokeWidth="4dp"
+        app:strokeColor="@color/dblue"
+        android:layout_marginBottom="220dp"/>
 </FrameLayout>

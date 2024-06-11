@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textColor="@color/yellow1"
             android:justificationMode="inter_word"
             android:fontFamily="@font/quicksand_medium"
