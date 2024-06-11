@@ -7,16 +7,13 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <!-- Image view centered -->
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
+    <!-- Custom VideoView centered and stretched to fill the screen -->
+    <com.example.dontblinkappx.FullScreenVideoView
+        android:id="@+id/videoView"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/minion_load"
-        android:scaleType="centerCrop" />
-
-    <!-- Text view at the top center -->
-
+        android:layout_gravity="center"
+        android:scaleType="fitXY" />
 
     <!-- Text view at the bottom center -->
     <TextView
