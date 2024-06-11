@@ -20,7 +20,7 @@
         android:id="@+id/leaderboard_container"
         android:layout_width="match_parent"
         android:layout_height="440dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="70dp"
         android:layout_marginBottom="90dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="@color/dblue"
@@ -364,7 +364,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:text="Refresh"
+        android:text="REFRESH"
         android:layout_gravity="bottom"
         android:backgroundTint="@color/yellow1"
         android:textSize="25sp"
@@ -372,5 +372,5 @@
         android:textColor="@color/dblue"
         app:strokeWidth="4dp"
         app:strokeColor="@color/dblue"
-        android:layout_marginBottom="220dp"/>
+        android:layout_marginBottom="80dp"/>
 </FrameLayout>

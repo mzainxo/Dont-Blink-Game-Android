@@ -184,8 +184,14 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "User registered successfully", Toast.LENGTH_SHORT).show();
 
                         // Proceed with the login
+
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("username", username);
+
+                        // Store the username in SharedPreferences
+                        SharedPreferences sharedPref = getSharedPreferences("username", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("username", username);
+                        editor.apply();
                         startActivity(intent);
                         finish();
                     }

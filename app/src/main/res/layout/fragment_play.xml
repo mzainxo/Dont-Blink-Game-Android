@@ -47,7 +47,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/rank_card"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             app:cardCornerRadius="50dp"
             app:cardElevation="0dp"
@@ -63,7 +63,7 @@
                 android:text="1st"
                 android:textColor="@color/dblue"
                 android:textSize="38sp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="15dp"/>
             <TextView
                 android:id="@+id/rank_text"
                 android:layout_width="match_parent"
@@ -79,7 +79,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/gplayed_card"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="4dp"
             app:cardCornerRadius="50dp"
@@ -96,7 +96,7 @@
                 android:text="54"
                 android:textColor="@color/yellow1"
                 android:textSize="38sp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="15dp"/>
             <TextView
                 android:id="@+id/gplayed_text"
                 android:layout_width="match_parent"
@@ -113,7 +113,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/hscore_card"
         android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:cardCornerRadius="50dp"
         app:cardElevation="0dp"
@@ -132,7 +132,7 @@
             android:text="4321"
             android:textColor="@color/dblue"
             android:textSize="38sp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="15dp"/>
         <TextView
             android:id="@+id/frame_text"
             android:layout_width="match_parent"
@@ -148,7 +148,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/tscore_card"
         android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:cardCornerRadius="50dp"
         app:cardElevation="0dp"
@@ -167,7 +167,7 @@
             android:text="4321"
             android:textColor="@color/yellow1"
             android:textSize="38sp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="15dp"/>
         <TextView
             android:id="@+id/tsframe_text"
             android:layout_width="match_parent"
@@ -183,7 +183,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/htime_card"
         android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:cardCornerRadius="50dp"
         app:cardElevation="0dp"
@@ -202,7 +202,7 @@
             android:text="30s"
             android:textColor="@color/dblue"
             android:textSize="38sp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="15dp"/>
         <TextView
             android:id="@+id/htime_text"
             android:layout_width="match_parent"
@@ -218,7 +218,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/ttime_card"
         android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:cardCornerRadius="50dp"
         app:cardElevation="0dp"
@@ -237,7 +237,7 @@
             android:text="69s"
             android:textColor="@color/yellow1"
             android:textSize="38sp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="15dp"/>
         <TextView
             android:id="@+id/ttime_text"
             android:layout_width="match_parent"
@@ -263,7 +263,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/tplayers_card"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginRight="4dp"
             app:cardCornerRadius="50dp"
@@ -280,7 +280,7 @@
                 android:text="12"
                 android:textColor="@color/dblue"
                 android:textSize="38sp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="15dp"/>
             <TextView
                 android:id="@+id/tplayers_text"
                 android:layout_width="match_parent"
@@ -296,7 +296,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/ttime2_card"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="4dp"
             app:cardCornerRadius="50dp"
@@ -313,7 +313,7 @@
                 android:text="4"
                 android:textColor="@color/dblue"
                 android:textSize="38sp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="15dp"/>
             <TextView
                 android:id="@+id/Onlinecount_text"
                 android:layout_width="match_parent"
