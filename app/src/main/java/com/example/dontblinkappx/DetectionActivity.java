@@ -249,18 +249,24 @@ public class DetectionActivity extends AppCompatActivity {
 
                     int timeInSeconds = (int) (stoppedTime / 1000);
 
-                    // Update HighScore if current frame count is greater
-                    if (frameCount > storedHighScore) {
-                        userRef.child("HighScore").setValue(frameCount);
-                    }
+                    if(timeInSeconds<360) {
+                        // Update HighScore if current frame count is greater
+                        if (frameCount > storedHighScore) {
+                            userRef.child("HighScore").setValue(frameCount);
+                        }
 
-                    // Update BestTime if current time is less
-                    if (timeInSeconds > storedBestTime) {
-                        userRef.child("BestTime").setValue(timeInSeconds);
-                    }
+                        // Update BestTime if current time is less
+                        if (timeInSeconds > storedBestTime) {
+                            userRef.child("BestTime").setValue(timeInSeconds);
+                        }
 
-                    // Increment GamesPlayed by 1
-                    userRef.child("GamesPlayed").setValue(storedGamesPlayed + 1);
+                        // Increment GamesPlayed by 1
+                        userRef.child("GamesPlayed").setValue(storedGamesPlayed + 1);
+                    }
+                    else{
+                        // Increment GamesPlayed by 1
+                        userRef.child("GamesPlayed").setValue(storedGamesPlayed + 1);
+                    }
                 }
             }
 

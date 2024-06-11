@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         final String username = getIntent().getStringExtra("username");
 
         // Assuming you have a method to retrieve the current user's key
-        String currentUserKey = username;
+        //String currentUserKey = username;
 
         // Start DetectionActivity and pass the currentUserKey
         Intent intent = new Intent(MainActivity.this, DetectionActivity.class);
-        intent.putExtra("currentUserKey", currentUserKey);
+        //intent.putExtra("currentUserKey", currentUserKey);
         //startActivity(intent);
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
