@@ -45,6 +45,7 @@ public class DetectionActivity extends AppCompatActivity {
     private CameraSource cameraSource;
     private int frameCount = 0;
     private long startTime;
+    private TextView myhscoreTextView; // Added for displaying HighScore
     private Handler handler;
     public boolean shouldRestartGame = true;
     private boolean gameStopped = false; // Flag to prevent multiple stopAll calls
@@ -73,6 +74,7 @@ public class DetectionActivity extends AppCompatActivity {
             timeSecondsTextView = findViewById(R.id.time_seconds_text);
             surface_camera_preview = findViewById(R.id.surface_camera_preview);
             countdownTextView = findViewById(R.id.countdown_text);
+            myhscoreTextView = findViewById(R.id.myhscore_text); // Initialize TextView for HighScore
 
             getWindow().setNavigationBarColor(
                     getResources().getColor(R.color.lyellow, getTheme())
@@ -92,6 +94,23 @@ public class DetectionActivity extends AppCompatActivity {
                 @Override
                 public void surfaceDestroyed(@NonNull SurfaceHolder holder) {
                     stopAll("Surface Destroyed");
+                }
+            });
+
+            // Fetch and display HighScore from Firebase
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(storedUsername);
+            userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        int storedHighScore = dataSnapshot.child("HighScore").getValue(Integer.class);
+                        myhscoreTextView.setText(String.valueOf(storedHighScore));
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // Handle errors
                 }
             });
 
